@@ -97,20 +97,20 @@ const Users = () => {
         <Form layout="inline" className="flex space-x-4">
           <Item name="date">
             <DatePicker
-              className="rounded-md border border-[#ffd400]"
+              className="rounded-md border border-[#59d8ff]"
               onChange={(date) => setSelectedDate(date)}
               placeholder="Select Date"
             />
           </Item>
           <Item name="username">
             <Input
-              className="rounded-md w-[70%] md:w-full border border-[#ffd400]"
+              className="rounded-md w-[70%] md:w-full border border-[#59d8ff]"
               placeholder="User Name"
               onChange={(e) => setSearchText(e.target.value)}
             />
           </Item>
           <Item>
-            <button className="size-8 rounded-full flex justify-center items-center bg-[#ffd400] text-white">
+            <button className="size-8 rounded-full flex justify-center items-center bg-[#59d8ff] text-white">
               <IoIosSearch className="size-5" />
             </button>
           </Item>
@@ -122,7 +122,7 @@ const Users = () => {
           theme={{
             components: {
               Table: {
-                headerBg: "#ffd400",
+                headerBg: "#59d8ff",
                 headerColor: "#fff",
                 headerBorderRadius: 5,
               },
@@ -146,8 +146,8 @@ const Users = () => {
 
         {/* User Details Section */}
         <div className={`${detailsVisible ? "block" : "hidden"} duration-500`}>
-          <div className=" w-full md:w-2/4 mx-auto border-2 border-[#ffd400] p-2 rounded-lg relative">
-            <div onClick={() => setDetailsVisible(false)} className="absolute bg-[#ffd400] text-white p-3 rounded-full -top-5 -left-5 cursor-pointer">
+          <div className=" w-full md:w-2/4 mx-auto border-2 border-[#59d8ff] p-2 rounded-lg relative">
+            <div onClick={() => setDetailsVisible(false)} className="absolute bg-[#59d8ff] text-white p-3 rounded-full -top-5 -left-5 cursor-pointer">
               <FaArrowLeft className="text-2xl" />
             </div>
 

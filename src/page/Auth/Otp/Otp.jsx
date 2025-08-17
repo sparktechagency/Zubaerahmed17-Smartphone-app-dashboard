@@ -79,7 +79,7 @@ const Otp = () => {
               margin: "0 0.5rem",
               fontSize: "2rem",
               fontWeight: "bold",
-              border: "1px solid #ffd400",
+              border: "1px solid #59d8ff",
               textAlign: "center",
               outline: "none",
             }}

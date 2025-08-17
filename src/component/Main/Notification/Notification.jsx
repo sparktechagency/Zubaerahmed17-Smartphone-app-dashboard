@@ -62,7 +62,7 @@ const Notification = () => {
           <FaAngleLeft /> Notification
           {unreadCount > 0 ? `(${unreadCount})` : " (0)"}
         </Link>
-        <button onClick={readAllNotifications} className="bg-[#ffd400] hover:bg-[#dfba27] text-white py-2 px-4 rounded flex items-center gap-2"><TfiViewListAlt />Read All</button>
+        <button onClick={readAllNotifications} className="bg-[#59d8ff] hover:bg-[#dfba27] text-white py-2 px-4 rounded flex items-center gap-2"><TfiViewListAlt />Read All</button>
       </div>
 
       <div className="space-y-4">
@@ -70,10 +70,10 @@ const Notification = () => {
           <div
             key={item.id}
             onClick={() => handleNotificationClick(item._id)} // Add a click handler if needed
-            className={`border border-[#ffd400] cursor-pointer rounded-md p-4 flex items-center space-x-4 ${item?.status === "unread" ? "bg-[#ffd4003b]" : "bg-white"}`}
+            className={`border border-[#59d8ff] cursor-pointer rounded-md p-4 flex items-center space-x-4 ${item?.status === "unread" ? "bg-[#59d8ff3b]" : "bg-white"}`}
           >
-            <div className="text-[#ffd400] border border-[#ffd400] rounded-full p-2">
-              <span className="bg-[#ffd400] p-1.5 rounded-full absolute ml-4 z-20"></span>
+            <div className="text-[#59d8ff] border border-[#59d8ff] rounded-full p-2">
+              <span className="bg-[#59d8ff] p-1.5 rounded-full absolute ml-4 z-20"></span>
               <IoMdNotificationsOutline size={30} className="relative" />
             </div>
             <div>

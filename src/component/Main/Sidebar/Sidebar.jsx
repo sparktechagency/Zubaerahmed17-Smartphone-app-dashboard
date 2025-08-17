@@ -71,7 +71,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
               key={item.name}
               to={item.path}
               className={({ isActive }) =>
-                `w-[80%] mx-auto px-5 py-2 flex justify-start items-center gap-3 text-black ${isActive ? " !text-white rounded-md bg-[#ffd400] " : ""
+                `w-[80%] mx-auto px-5 py-2 flex justify-start items-center gap-3 text-black ${isActive ? " !text-white rounded-md bg-[#59d8ff] " : ""
                 }`
               }
             >
@@ -85,15 +85,15 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
           onClick={() => setShowModal(true)}
           className="flex items-center gap-1 font-bold px-10 py-4 text-black  ml-6 mt-5"
         >
-          <IoIosLogOut className="size-8  p-1 text-[#ffd400] rounded-md" />
-          <span className="text-[#ffd400] ">Logout</span>
+          <IoIosLogOut className="size-8  p-1 text-[#59d8ff] rounded-md" />
+          <span className="text-[#59d8ff] ">Logout</span>
         </button>
 
       </div>
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 overflow-y-auto left-0 z-40 w-64 h-full bg-[#ffd400] shadow-lg transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed top-0 overflow-y-auto left-0 z-40 w-64 h-full bg-[#59d8ff] shadow-lg transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out md:hidden`}
       >
         <div onClick={toggleSidebar} className="absolute top-0 right-0 p-4">
@@ -109,7 +109,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
               to={item.path}
               onClick={toggleSidebar} // Close sidebar on link click
               className={({ isActive }) =>
-                `w-[70%] mx-auto px-5 py-2 flex items-center gap-3 text-white ${isActive ? "bg-[#ffd400] " : ""
+                `w-[70%] mx-auto px-5 py-2 flex items-center gap-3 text-white ${isActive ? "bg-[#59d8ff] " : ""
                 }`
               }
             >

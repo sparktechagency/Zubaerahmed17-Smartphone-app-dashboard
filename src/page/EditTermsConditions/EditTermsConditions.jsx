@@ -87,7 +87,7 @@ const EditTermsConditions = () => {
             <button
               // type="primary"
               // htmlType="submit"
-              className="bg-[#ffd400] text-white text-xl font-semibold px-5 py-3 rounded-md md:mt-14"
+              className="bg-[#59d8ff] text-white text-xl font-semibold px-5 py-3 rounded-md md:mt-14"
             >
               Update
             </button>

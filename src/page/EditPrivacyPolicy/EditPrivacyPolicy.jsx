@@ -86,7 +86,7 @@ const EditPrivacyPolicy = () => {
             <div className="w-full flex justify-end mt-20 md:mt-16">
               <button
                 type="submit"
-                className="bg-[#ffd400] text-white text-xl gap-2 py-2 px-8 rounded-md font-bold"
+                className="bg-[#59d8ff] text-white text-xl gap-2 py-2 px-8 rounded-md font-bold"
                 disabled={isLoading}
               >
                 {isLoading ? "Updating..." : "Update"}

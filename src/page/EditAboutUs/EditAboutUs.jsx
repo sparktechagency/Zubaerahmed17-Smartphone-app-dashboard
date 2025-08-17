@@ -92,7 +92,7 @@ const EditAboutUs = () => {
             <Button
               type="primary"
               htmlType="submit"
-              className="bg-[#ffd400] text-white px-5 text-xl py-2 rounded-md"
+              className="bg-[#59d8ff] text-white px-5 text-xl py-2 rounded-md"
               loading={isLoading} // Show loading state
             >
               {isLoading ? "Updating..." : "Update"}

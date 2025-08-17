@@ -29,7 +29,7 @@ const PrivacyPolicyPage = () => {
           <h1 className="text-2xl font-semibold">Privacy Policy</h1>
         </Link>
         <Link to={'/settings/edit-privacy-policy'}>
-          <button className="bg-[#ffd400] text-white flex items-center gap-2 p-2 rounded-md font-bold" border>
+          <button className="bg-[#59d8ff] text-white flex items-center gap-2 p-2 rounded-md font-bold" border>
             <TbEdit className="size-5" />
             <span>Edit</span>
           </button>

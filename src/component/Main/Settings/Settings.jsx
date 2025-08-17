@@ -108,7 +108,7 @@ const Settings = () => {
       {settingsItem.map((setting, index) => (
         <div
           key={index}
-          className="w-full p-4 mb-2 text-sm rounded-lg bg-[#ffd4001f] hover:bg-transparent hover:border-[#ffd400] border flex items-center justify-between cursor-pointer "
+          className="w-full p-4 mb-2 text-sm rounded-lg bg-[#59d8ff1f] hover:bg-transparent hover:border-[#59d8ff] border flex items-center justify-between cursor-pointer "
           onClick={() => handleNavigate(setting.path)}
         >
           <h2 className="text-xl">{setting.title}</h2>
@@ -207,7 +207,7 @@ const Settings = () => {
                 </button>
               </p> */}
               <Form.Item className="w-full">
-                <button className="w-full bg-[#ffd400] text-white p-3 text-xl font-semibold rounded-md">Update Password</button>
+                <button className="w-full bg-[#59d8ff] text-white p-3 text-xl font-semibold rounded-md">Update Password</button>
               </Form.Item>
             </Form>
           </div>
@@ -236,7 +236,7 @@ const Settings = () => {
                 </Form.Item>
               </div>
               <Form.Item>
-                <button className="w-full bg-[#ffd400] text-white p-3 text-xl font-semibold rounded-md">Send verification code</button>
+                <button className="w-full bg-[#59d8ff] text-white p-3 text-xl font-semibold rounded-md">Send verification code</button>
               </Form.Item>
             </Form>
           </div>
@@ -267,7 +267,7 @@ const Settings = () => {
                   <button className="font-medium text-">Resend</button>
                 </p>
               </div>
-              <button className="w-full bg-[#ffd400] text-white p-3 text-xl font-semibold rounded-md">Verify </button>
+              <button className="w-full bg-[#59d8ff] text-white p-3 text-xl font-semibold rounded-md">Verify </button>
             </form>
           </div>
         )}
@@ -320,7 +320,7 @@ const Settings = () => {
                 <CustomInput placeholder="Confirm Password" isPassword />
               </Form.Item>
               <Form.Item>
-                <button className="w-full bg-[#ffd400] text-white p-3 text-xl font-semibold rounded-md">Update password</button>
+                <button className="w-full bg-[#59d8ff] text-white p-3 text-xl font-semibold rounded-md">Update password</button>
               </Form.Item>
             </Form>
           </div>

@@ -13,7 +13,7 @@ const IncomeGraphChart = () => {
 
 
   return (
-    <section className="w-full col-span-full md:col-span-4 bg-white rounded-lg border-2 border-[#ffd400] shadow-[0_4px_10px_rgba(0,0,0,0.2)]">
+    <section className="w-full col-span-full md:col-span-4 bg-white rounded-lg border-2 border-[#59d8ff] shadow-[0_4px_10px_rgba(0,0,0,0.2)]">
       <h1 className="text-2xl font-semibold  pl-5 pt-5">Last 30 Transitions  </h1>
       <ResponsiveContainer width="100%" height={500} className="pr-5 pt-5">
         <LineChart data={alldata}>
@@ -27,7 +27,7 @@ const IncomeGraphChart = () => {
           <Line
             type="monotone"
             dataKey="amount"
-            stroke="#ffd400" // Green color for income
+            stroke="#59d8ff" // Green color for income
             activeDot={{ r: 8 }}
             strokeWidth={4}
           />

@@ -141,7 +141,7 @@ const Subscription = () => {
             <div className="w-full md:flex justify-end items-center gap-2 flex-wrap py-6">
                 <button
                     type="button"
-                    className="text-xl px-2 md:px-5 py-3 bg-[#ffd400] text-white flex justify-center items-center gap-1 rounded md:mb-0"
+                    className="text-xl px-2 md:px-5 py-3 bg-[#59d8ff] text-white flex justify-center items-center gap-1 rounded md:mb-0"
                     onClick={() => showModal(false)}
                 >
                     <FaPlus className="text-xl font-semibold text-white" /> Add Subscription
@@ -151,10 +151,10 @@ const Subscription = () => {
             {/* Subscriptions Grid */}
             <div className="grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 gap-5">
                 {allData?.map((subscription) => (
-                    <div key={subscription.id} className="border-2 border-[#ffd400] rounded-lg overflow-hidden">
+                    <div key={subscription.id} className="border-2 border-[#59d8ff] rounded-lg overflow-hidden">
                         <div className='p-5'>
-                            <h2 className="capitalize text-3xl font-semibold text-[#ffd400] flex items-center gap-2">
-                                <div className='h-10 w-10 rounded-full bg-[#ffd400] text-white flex justify-center items-center'>
+                            <h2 className="capitalize text-3xl font-semibold text-[#59d8ff] flex items-center gap-2">
+                                <div className='h-10 w-10 rounded-full bg-[#59d8ff] text-white flex justify-center items-center'>
                                     <AiFillCrown className="size-6" />
                                 </div>
                                 {subscription?.title}
@@ -162,25 +162,25 @@ const Subscription = () => {
                             <h3 className='text-2xl font-semibold mt-5'>Unit Type</h3>
                             {subscription?.features?.map((feature, index) => (
                                 <p key={index} className="mt-2 font-semibold text-xl gap-2 flex items-center">
-                                    <FaRegCircleCheck className='text-[#ffd400]' /> {feature}
+                                    <FaRegCircleCheck className='text-[#59d8ff]' /> {feature}
                                 </p>
                             ))}
                         </div>
-                        <div className='border-t-2 border-b-2 border-[#ffd400] py-2 text-center my-3'>
-                            <p className="text-5xl font-semibold text-[#ffd400] gap-2">
+                        <div className='border-t-2 border-b-2 border-[#59d8ff] py-2 text-center my-3'>
+                            <p className="text-5xl font-semibold text-[#59d8ff] gap-2">
                             € {subscription.price} <span className='text-base font-semibold text-black'>/ {subscription.duration}</span>
                             </p>
                         </div>
                         <div className="gap-3 p-5">
                             <button
                                 onClick={() => handleDelete(subscription)}
-                                className="w-full py-3 mb-2 px-6 border border-[#ffd400] text-[#ffd400] rounded-lg"
+                                className="w-full py-3 mb-2 px-6 border border-[#59d8ff] text-[#59d8ff] rounded-lg"
                             >
                                 Delete
                             </button>
                             <button
                                 onClick={() => showModal(true, subscription)}
-                                className="w-full py-3 px-6 border bg-[#ffd400] text-white rounded-lg"
+                                className="w-full py-3 px-6 border bg-[#59d8ff] text-white rounded-lg"
                             >
                                 Edit Package
                             </button>
@@ -251,7 +251,7 @@ const Subscription = () => {
                         />
                     </div>
 
-                    <Button type="primary" htmlType="submit" className="w-full py-3 px-5 rounded-lg bg-[#ffd400] text-white">
+                    <Button type="primary" htmlType="submit" className="w-full py-3 px-5 rounded-lg bg-[#59d8ff] text-white">
                         {isEditing ? 'Update Subscription' : 'Add Subscription'}
                     </Button>
                 </form>
