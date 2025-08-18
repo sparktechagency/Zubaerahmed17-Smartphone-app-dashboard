@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { FaAngleLeft } from "react-icons/fa";
 import { Modal, Pagination } from "antd";
-import { IoSearchOutline } from "react-icons/io5";
+import { FaAngleLeft } from "react-icons/fa";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
-import { jsPDF } from "jspdf";
-import { useGetEarningsQuery } from "../../redux/features/earnings/earningsApi";
+import { HiAdjustmentsHorizontal } from "react-icons/hi2";
+import { IoEyeOutline } from "react-icons/io5";
 
 const Earnings = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -14,28 +13,55 @@ const Earnings = () => {
   const [searchText, setSearchText] = useState("");
   const [searchDate, setSearchDate] = useState("");
 
-  // ✅ Fetch earnings data
-  const { data: earningsData, isLoading } = useGetEarningsQuery({
-    from: (currentPage - 1) * pageSize,
-    to: currentPage * pageSize,
-  });
+  // Demo Data for Earnings (Used for testing purposes)
+  const earningsData = [
+    {
+      id: 1,
+      transactionId: "TX12345",
+      currency: "USD",
+      amount: "$500",
+      status: "Completed",
+      paymentMethod: "Credit Card",
+      updatedAt: "2023-03-01T10:00:00Z",
+    },
+    {
+      id: 2,
+      transactionId: "TX12346",
+      currency: "USD",
+      amount: "$250",
+      status: "Pending",
+      paymentMethod: "PayPal",
+      updatedAt: "2023-03-05T14:30:00Z",
+    },
+    {
+      id: 3,
+      transactionId: "TX12347",
+      currency: "EUR",
+      amount: "$450",
+      status: "Completed",
+      paymentMethod: "Debit Card",
+      updatedAt: "2023-03-10T08:45:00Z",
+    },
+    {
+      id: 4,
+      transactionId: "TX12348",
+      currency: "GBP",
+      amount: "$100",
+      status: "Failed",
+      paymentMethod: "Bank Transfer",
+      updatedAt: "2023-03-15T12:00:00Z",
+    },
+  ];
 
-  console.log("Fetched Earnings Data:", earningsData);
-
-  // ✅ Store API data in state for filtering
+  // Filter Earnings based on search text
   const [filteredEarnings, setFilteredEarnings] = useState([]);
   useEffect(() => {
-    setFilteredEarnings(earningsData || []);
-  }, [earningsData]);
+    let filteredData = earningsData;
 
-  // ✅ Handle Search
-  useEffect(() => {
-    let filteredData = earningsData || [];
-
-    // Filter by Name
+    // Filter by Name (or other field)
     if (searchText.trim() !== "") {
       filteredData = filteredData.filter((row) =>
-        row.userName?.toLowerCase().includes(searchText.toLowerCase())
+        row.transactionId?.toLowerCase().includes(searchText.toLowerCase())
       );
     }
 
@@ -63,88 +89,86 @@ const Earnings = () => {
     setCurrentPage(page);
   };
 
-  const downloadPDF = () => {
-    const doc = new jsPDF();
-
-    if (selectedTransaction) {
-      doc.setFontSize(18);
-      doc.setFont("helvetica", "bold");
-      doc.text("Transaction Details", 14, 20);
-      doc.setFontSize(12);
-
-      const leftMargin = 10;
-      const detailsStartY = 30;
-
-      doc.rect(leftMargin, detailsStartY, 190, 90);
-      doc.text(`Transaction ID: #${selectedTransaction.id}`, leftMargin + 6, detailsStartY + 10);
-      doc.text(`User Name: ${selectedTransaction.userName}`, leftMargin + 6, detailsStartY + 20);
-      doc.text(`Location: ${selectedTransaction.location}`, leftMargin + 6, detailsStartY + 30);
-      doc.text(`Date: ${selectedTransaction.date}`, leftMargin + 6, detailsStartY + 40);
-      doc.text(`Withdraw Amount: $${selectedTransaction.amount}`, leftMargin + 6, detailsStartY + 50);
-
-      doc.save("transaction-details.pdf");
-    }
+  const [showFilter, setShowFilter] = useState(false);
+  const showFilterItem = () => {
+    setShowFilter(!showFilter);
   };
 
-  console.log(selectedTransaction);
-
   return (
-    <div className="w-full p-5 overflow-x-auto">
-      <div className="w-full md:flex justify-between items-center py-6">
-        <h1 className="text-2xl flex items-center">
-          <FaAngleLeft /> Earnings
-        </h1>
-        <div className="flex items-center gap-2">
-          {/* ✅ Date Search */}
-          <input
-            type="date"
-            className="border border-gray-300 px-4 py-2 rounded-md mr-2"
-            value={searchDate}
-            onChange={(e) => setSearchDate(e.target.value)}
-          />
-
-          {/* ✅ Transaction ID Search */}
-          <input
-            type="text"
-            name="UserName"
-            className="border border-gray-300 px-4 py-2 rounded-md mr-2"
-            placeholder="Search by Transaction ID"
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-          <button className="bg-[#038c6d] text-white w-10 h-10 flex items-center justify-center rounded-md ml-2">
-            <IoSearchOutline />
-          </button>
-        </div>
+    <div className="w-full p-5 overflow-x-auto min-h-[calc(100vh-70px)]">
+      <div className="flex relative items-center justify-between mb-5">
+        <h1 className="lg:text-4xl text-2xl font-semibold">Earnings list</h1>
+        <button
+          onClick={showFilterItem}
+          className="flex items-center text-xl gap-2 bg-[#59d8ff] px-3 py-2 rounded-md text-white hover:bg-[#2cb2d6]"
+        >
+          Filter
+          <HiAdjustmentsHorizontal className="text-2xl" />
+        </button>
+        {showFilter && (
+          <div className="absolute z-20 right-0 top-12 mt-2 p-4 w-64 bg-white rounded-lg shadow-lg">
+            <div className="flex flex-col gap-4">
+              <div>
+                <label htmlFor="month" className="text-sm font-semibold text-gray-700">Select Month</label>
+                <select id="month" className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md">
+                  <option value="">Select Month</option>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="year" className="text-sm font-semibold text-gray-700">Select Year</label>
+                <select id="year" className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md">
+                  <option value="">Select Year</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+                </select>
+              </div>
+              <button onClick={showFilterItem} className="w-full py-2 mt-4 bg-[#59d8ff] text-white rounded-md hover:bg-[#2cb2d6]">
+                Apply Filter
+              </button>
+            </div>
+          </div>
+        )}
       </div>
 
-      <div className="">
-        <table className="w-full border-collapse border-[#92b8c0] min-w-[1000px]">
-          <thead className="bg-[#92b8c0]">
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse border-[#58d6ff] min-w-[1000px]">
+          <thead className="bg-[#58d6ff] text-white border">
             <tr>
-              <th className="border-gray-300 px-4 py-2 text-left">Transaction ID</th>
-              {/* <th className="border-gray-300 px-4 py-2 text-left">Card Brand</th> */}
-              <th className="border-gray-300 px-4 py-2 text-left">Currency</th>
-              <th className="border-gray-300 px-4 py-2 text-left">Amount</th>
-              <th className="border-gray-300 px-4 py-2 text-left">Status</th>
-              <th className="border-gray-300 px-4 py-2 text-left">Payment Method</th>
-              <th className="border-gray-300 px-4 py-2 text-left">Date</th>
-              <th className="border-gray-300 px-4 py-2 text-left">Actions</th>
+              <th className="border-gray-300 px-4 py-3 text-left">Transaction ID</th>
+              <th className="border-gray-300 px-4 py-3 text-left">Currency</th>
+              <th className="border-gray-300 px-4 py-3 text-left">Amount</th>
+              <th className="border-gray-300 px-4 py-3 text-left">Status</th>
+              <th className="border-gray-300 px-4 py-3 text-left">Payment Method</th>
+              <th className="border-gray-300 px-4 py-3 text-left">Date</th>
+              <th className="border-gray-300 px-4 py-3 text-left">Actions</th>
             </tr>
           </thead>
           <tbody>
-            {filteredEarnings.map((row, index) => (
-              <tr key={row?.id} className="hover:bg-gray-50">
-                <td className="border-gray-300 px-4 py-2">{row?.transactionId}</td>
-                {/* <td className="border-gray-300 px-4 py-2">{row?.cardBrand}</td> */}
-                <td className="border-gray-300 px-4 py-2">{row?.currency}</td>
-                <td className="border-gray-300 px-4 py-2">{row?.amount}</td>
-                <td className="border-gray-300 px-4 py-2">Success</td>
-                <td className="border-gray-300 px-4 py-2">{row?.status}</td>
-                <td className="border-gray-300 px-4 py-2">{new Date(row?.updatedAt).toLocaleDateString()}</td>
-                <td className="border-gray-300 px-4 py-2">
+            {filteredEarnings.map((row) => (
+              <tr key={row?.id} className="hover:bg-gray-50 border">
+                <td className="border-gray-300 px-4 py-3">{row?.transactionId}</td>
+                <td className="border-gray-300 px-4 py-3">{row?.currency}</td>
+                <td className="border-gray-300 px-4 py-3">{row?.amount}</td>
+                <td className="border-gray-300 px-4 py-3">Success</td>
+                <td className="border-gray-300 px-4 py-3">{row?.status}</td>
+                <td className="border-gray-300 px-4 py-3">{new Date(row?.updatedAt).toLocaleDateString()}</td>
+                <td className="border-gray-300 px-4 py-3">
                   <div onClick={() => showModal(row)} className="cursor-pointer">
-                    <HiOutlineDotsHorizontal className="text-2xl font-semibold" />
+                    <IoEyeOutline className="text-2xl font-semibold" />
                   </div>
                 </td>
               </tr>
@@ -153,19 +177,19 @@ const Earnings = () => {
         </table>
       </div>
 
-      {/* ✅ Pagination */}
+      {/* Pagination */}
       <div className="flex justify-center mt-4">
         <Pagination
           current={currentPage}
           pageSize={pageSize}
-          total={earningsData?.total || 0}
+          total={earningsData?.length || 0}
           onChange={onPageChange}
           showSizeChanger={false}
         />
       </div>
 
-      {/* ✅ Modal for Transaction Details */}
-      <Modal visible={isModalVisible} onCancel={handleCancel} footer={null} width={600}>
+      {/* Modal for Transaction Details */}
+      <Modal visible={isModalVisible} onCancel={handleCancel} footer={null} width={500}>
         {selectedTransaction && (
           <div className="text-black">
             <h2 className="text-2xl font-semibold mb-4 text-center">Transaction Details</h2>
@@ -174,11 +198,6 @@ const Earnings = () => {
               <p className="font-semibold">Transaction ID:</p>
               <p>{selectedTransaction?.transactionId}</p>
             </div>
-
-            {/* <div className="mb-4 flex items-center justify-between">
-              <p className="font-semibold">Card Brand:</p>
-              <p>{selectedTransaction?.cardBrand}</p>
-            </div> */}
 
             <div className="mb-4 flex items-center justify-between">
               <p className="font-semibold">Currency:</p>
@@ -192,17 +211,13 @@ const Earnings = () => {
 
             <div className="mb-4 flex items-center justify-between">
               <p className="font-semibold">Status:</p>
-              <p>Success</p>
+              <p>{selectedTransaction?.status}</p>
             </div>
 
             <div className="mb-4 flex items-center justify-between">
               <p className="font-semibold">Payment Method:</p>
-              <p>{selectedTransaction?.status}</p>
+              <p>{selectedTransaction?.paymentMethod}</p>
             </div>
-
-            <button onClick={downloadPDF} className="border border-[#92b8c0] w-full px-4 py-2 rounded text-black font-semibold mt-4">
-              Download PDF
-            </button>
           </div>
         )}
       </Modal>

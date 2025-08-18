@@ -62,6 +62,7 @@ import BabyCuseSouthingdetails from "../page/BabyCuse/BabyCuseSouthingdetails";
 import BookingRequest from "../page/BookingRequest/BookingRequest";
 import Hostlist from "../page/Hostlist/Hostlist";
 import Messagelist from "../page/Messagelist/Messagelist";
+import PaymentRequest from "../page/PaymentRequest/PaymentRequest";
 
 
 
@@ -100,6 +101,14 @@ const router = createBrowserRouter([
       {
         path: "message",
         element: <Messagelist />,
+      },
+      {
+        path: "earnings",
+        element: <Earnings />,
+      },
+      {
+        path: "payment-request",
+        element: <PaymentRequest />,
       },
 
 
