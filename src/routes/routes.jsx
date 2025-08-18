@@ -61,6 +61,7 @@ import BabyCuseSounddetails from "../page/BabyCuse/BabyCuseSounddetails";
 import BabyCuseSouthingdetails from "../page/BabyCuse/BabyCuseSouthingdetails";
 import BookingRequest from "../page/BookingRequest/BookingRequest";
 import Hostlist from "../page/Hostlist/Hostlist";
+import Messagelist from "../page/Messagelist/Messagelist";
 
 
 
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
       {
         path: "host",
         element: <Hostlist />,
+      },
+      {
+        path: "message",
+        element: <Messagelist />,
       },
 
 
