@@ -63,6 +63,7 @@ import BookingRequest from "../page/BookingRequest/BookingRequest";
 import Hostlist from "../page/Hostlist/Hostlist";
 import Messagelist from "../page/Messagelist/Messagelist";
 import PaymentRequest from "../page/PaymentRequest/PaymentRequest";
+import Reviews from "../page/reviews/Reviews";
 
 
 
@@ -109,6 +110,10 @@ const router = createBrowserRouter([
       {
         path: "payment-request",
         element: <PaymentRequest />,
+      },
+      {
+        path: "reviews",
+        element: <Reviews />,
       },
 
 

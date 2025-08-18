@@ -19,7 +19,7 @@ import logoimage from '/public/logo/Logo-Orange.png';
 import { AiFillCrown } from "react-icons/ai";
 import { PiBabyFill, PiBuildingApartmentLight } from "react-icons/pi";
 import { TfiCup } from "react-icons/tfi";
-import { CiDollar, CiMail, CiSettings } from "react-icons/ci";
+import { CiDollar, CiMail, CiSettings, CiStar } from "react-icons/ci";
 import { VscGitPullRequest } from "react-icons/vsc";
 
 const sidebarItems = [
@@ -58,6 +58,11 @@ const sidebarItems = [
     name: "Payment Request",
     icon: <VscGitPullRequest className="size-6" />,
   },
+  // {
+  //   path: "/reviews",
+  //   name: "Reviews",
+  //   icon: <CiStar className="size-6" />,
+  // },
   {
     path: "/reports",
     name: "Reports",
@@ -97,7 +102,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
         <Link to={"/"} className="flex flex-col justify-center items-center w-20 mx-auto rounded-lg overflow-hidden pt-5 gap-2 bg-white mb-10 text-black">
           <img src={logoimage} alt="logo" className="w-full rounded-md py-5 " />
         </Link>
-        <ul className="flex flex-col gap-5 mt-10">
+        <ul className="flex flex-col gap-3 mt-10">
           {sidebarItems.map((item) => (
             <NavLink
               key={item.name}
