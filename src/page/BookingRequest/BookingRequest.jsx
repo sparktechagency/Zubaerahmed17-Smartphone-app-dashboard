@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { HiAdjustmentsHorizontal } from 'react-icons/hi2';
-import { Modal, Button } from 'antd'; // Import Modal and Button from Ant Design
+import { Modal, Button, Pagination } from 'antd'; // Import Modal, Button, and Pagination from Ant Design
 import { CiLocationOn } from 'react-icons/ci';
 
 const BookingRequest = () => {
     const [showFilter, setShowFilter] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false); // Modal state
     const [selectedBooking, setSelectedBooking] = useState(null); // Selected booking data for modal
+    const [currentPage, setCurrentPage] = useState(1); // Pagination state
+    const [bookingsPerPage] = useState(3); // Number of bookings per page
 
     const showFilterItem = () => {
         setShowFilter(!showFilter);
@@ -52,8 +54,59 @@ const BookingRequest = () => {
             phoneNumber: '4965734342',
             eventDetails: 'An exclusive venue for a special birthday party with scenic views and luxury amenities.',
         },
+        {
+            name: 'Mark Smith',
+            location: 'Miami, US',
+            eventName: 'Ocean View Resort',
+            eventCategory: 'Conference',
+            eventDate: '5-8 August 2025',
+            eventTime: '9:00 AM',
+            guests: 200,
+            price: 15000,
+            imageUrl: 'https://randomuser.me/api/portraits/men/63.jpg',
+            eventImage: 'https://img.freepik.com/free-photo/full-shot-businessman-at-conference_23-2149956422.jpg',
+            phoneNumber: '49857964675',
+            eventDetails: 'A luxurious resort offering a spacious venue for conferences and meetings with ocean views.',
+        },
+        {
+            name: 'Mark Smith',
+            location: 'Miami, US',
+            eventName: 'Ocean View Resort',
+            eventCategory: 'Conference',
+            eventDate: '5-8 August 2025',
+            eventTime: '9:00 AM',
+            guests: 200,
+            price: 15000,
+            imageUrl: 'https://randomuser.me/api/portraits/men/63.jpg',
+            eventImage: 'https://img.freepik.com/free-photo/full-shot-businessman-at-conference_23-2149956422.jpg',
+            phoneNumber: '49857964675',
+            eventDetails: 'A luxurious resort offering a spacious venue for conferences and meetings with ocean views.',
+        },
+        {
+            name: 'Mark Smith',
+            location: 'Miami, US',
+            eventName: 'Ocean View Resort',
+            eventCategory: 'Conference',
+            eventDate: '5-8 August 2025',
+            eventTime: '9:00 AM',
+            guests: 200,
+            price: 15000,
+            imageUrl: 'https://randomuser.me/api/portraits/men/63.jpg',
+            eventImage: 'https://img.freepik.com/free-photo/full-shot-businessman-at-conference_23-2149956422.jpg',
+            phoneNumber: '49857964675',
+            eventDetails: 'A luxurious resort offering a spacious venue for conferences and meetings with ocean views.',
+        },
         // Add more data if necessary
     ];
+
+    // Pagination Logic
+    const indexOfLastBooking = currentPage * bookingsPerPage;
+    const indexOfFirstBooking = indexOfLastBooking - bookingsPerPage;
+    const currentBookings = bookingData.slice(indexOfFirstBooking, indexOfLastBooking);
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
 
     return (
         <div className="py-5 px-3">
@@ -108,7 +161,7 @@ const BookingRequest = () => {
 
             {/* Booking Card Section */}
             <div className="my-10">
-                {bookingData.map((booking, index) => (
+                {currentBookings.map((booking, index) => (
                     <div key={index} className="bg-white mt-5 rounded-lg border-2 border-[#59d8ff] p-4 gap-5 flex items-center justify-between flex-wrap lg:flex-nowrap">
                         {/* Profile Image */}
                         <img className="w-16 h-16 rounded-full object-cover" src={booking.imageUrl} alt={booking.name} />
@@ -119,7 +172,7 @@ const BookingRequest = () => {
                             <p className="text-gray-600 text-sm">{booking.location}</p>
 
                             <hr />
-                            <div className=" flex items-center justify-between mt-2">
+                            <div className="flex items-center justify-between mt-2">
                                 <div className="flex flex-col justify-between">
                                     <span className="font-medium">Event Name</span>
                                     <span>{booking.eventName}</span>
@@ -130,7 +183,7 @@ const BookingRequest = () => {
                                 </div>
                                 <div className="flex flex-col justify-between mt-1">
                                     <span className="font-medium">Location</span>
-                                    <span>{booking.eventCategory}</span>
+                                    <span>{booking.location}</span>
                                 </div>
                             </div>
                         </div>
@@ -146,6 +199,18 @@ const BookingRequest = () => {
                 ))}
             </div>
 
+            {/* Pagination */}
+            <div className='flex items-center justify-end'>
+                <Pagination
+                    current={currentPage}
+                    pageSize={bookingsPerPage}
+                    total={bookingData.length}
+                    onChange={handlePageChange}
+                    showSizeChanger={false}
+                    style={{ textAlign: 'right', marginTop: '20px' }}
+                />
+            </div>
+
             {/* Modal for Showing Event Details */}
             <Modal
                 visible={isModalVisible}
@@ -154,42 +219,41 @@ const BookingRequest = () => {
                 width={1200}
             >
                 {selectedBooking && (
-                    <div className='p-5 grid lg:grid-cols-2 gap-8' >
-                        <div >
+                    <div className='p-5 grid lg:grid-cols-2 gap-8'>
+                        <div>
                             <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
-                                <div className=" ">
+                                <div className="">
                                     <div className="text-lg font-semibold">Event Title</div>
                                     <div>{selectedBooking.eventName}</div>
                                 </div>
-                                <div className=" ">
+                                <div className="">
                                     <div className="text-lg font-semibold">Event Category</div>
                                     <div>{selectedBooking.eventCategory}</div>
                                 </div>
-                                <div className=" ">
+                                <div className="">
                                     <div className="text-lg font-semibold">Date</div>
                                     <div>{selectedBooking.eventDate}</div>
                                 </div>
-                                <div className=" ">
+                                <div className="">
                                     <div className="text-lg font-semibold">Time</div>
                                     <div>{selectedBooking.eventTime}</div>
                                 </div>
-                                <div className=" ">
+                                <div className="">
                                     <div className="text-lg font-semibold">Guest</div>
                                     <div>{selectedBooking.guests}</div>
                                 </div>
-                                <div className=" ">
+                                <div className="">
                                     <div className="text-lg font-semibold">Price</div>
                                     <div>${selectedBooking.price}</div>
                                 </div>
-                                <div className=" ">
+                                <div className="">
                                     <div className="text-lg font-semibold">Location</div>
                                     <div>{selectedBooking.location}</div>
                                 </div>
-                                <div className=" ">
+                                <div className="">
                                     <div className="text-lg font-semibold">Phone Number</div>
                                     <div>{selectedBooking.phoneNumber}</div>
                                 </div>
-
                             </div>
                             <hr className='my-4' />
                             <div className="mt-4 text-lg">
@@ -222,8 +286,6 @@ const BookingRequest = () => {
                             </button>
                         </div>
                     </div>
-
-
                 )}
             </Modal>
         </div>

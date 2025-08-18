@@ -17,6 +17,8 @@ const Users = () => {
 
   const allUsers = data?.data?.attributes?.users || []; // Fallback to an empty array if data is undefined
 
+  console.log(allUsers);
+
   const [searchText, setSearchText] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -159,7 +161,7 @@ const Users = () => {
                   src="../../../public/logo/userimage.png"
                   alt="User"
                 />
-                <h1 className="text-2xl font-semibold">{userDataFull?.fullName}</h1>
+                <h1 className="text-2xl font-semibold">{userDataFull?.fullName === "" ? userDataFull?.fullName : "---"}</h1>
               </div>
             </div>
 
@@ -167,23 +169,23 @@ const Users = () => {
             <div className="space-y-3">
               <div className="flex items-center justify-between py-3 border-2 px-3 rounded-lg border-[#00000042]">
                 <span className="font-semibold">Name</span>
-                <span>{userDataFull?.fullName}</span>
+                <span>{userDataFull?.fullName === "" ? userDataFull?.fullName : "---"}</span>
               </div>
               <div className="flex items-center justify-between py-3 border-2 px-3 rounded-lg border-[#00000042]">
                 <span className="font-semibold">Email</span>
                 <span>{userDataFull?.email}</span>
-              </div>
-              <div className="flex items-center justify-between py-3 border-2 px-3 rounded-lg border-[#00000042]">
-                <span className="font-semibold">Status</span>
-                <span>{userDataFull?.status}</span>
-              </div>
+              </div> 
               <div className="flex items-center justify-between py-3 border-2 px-3 rounded-lg border-[#00000042]">
                 <span className="font-semibold">Phone Number</span>
-                <span>{userDataFull?.phoneNumber}</span>
+                <span>{userDataFull?.phoneNumber === "" ? userDataFull?.phoneNumber : "---"}</span>
               </div>
               <div className="flex items-center justify-between py-3 border-2 px-3 rounded-lg border-[#00000042]">
-                <span className="font-semibold">User Type</span>
-                <span>{userDataFull?.gender}</span>
+                <span className="font-semibold">Data Of Birth</span>
+                <span>{userDataFull?.dataOfBirth === "" ? userDataFull?.dataOfBirth : "---"}</span>
+              </div>
+              <div className="flex items-center justify-between py-3 border-2 px-3 rounded-lg border-[#00000042]">
+                <span className="font-semibold">Location</span>
+                <span>{userDataFull?.location === "" ? userDataFull?.location : "---"}</span>
               </div>
               <div className="flex items-center justify-between py-3 border-2 px-3 rounded-lg border-[#00000042]">
                 <span className="font-semibold">Joining Date</span>
