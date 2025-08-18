@@ -59,6 +59,7 @@ import Milestone from "../page/Milestone/Milestone";
 import MilestoneDetails from "../page/Milestone/MilestoneDetails";
 import BabyCuseSounddetails from "../page/BabyCuse/BabyCuseSounddetails";
 import BabyCuseSouthingdetails from "../page/BabyCuse/BabyCuseSouthingdetails";
+import BookingRequest from "../page/BookingRequest/BookingRequest";
 
 
 
@@ -86,6 +87,13 @@ const router = createBrowserRouter([
         path: "users/:id",
         element: <UserDetails />,
       },
+      {
+        path: "booking-request",
+        element: <BookingRequest />,
+      },
+
+
+
       {
         path: "subscription",
         element: <Subscription />,
