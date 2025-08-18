@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Select } from 'antd';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { useGetUserAndIncomeQuery } from '../../../redux/features/dashboard/dashboardApi';
 
 // Sample raw data for the months
 const rawData = {
@@ -13,13 +12,10 @@ const Piechart = () => {
   const [month, setMonth] = useState('august'); // Default month is 'august'
   const mainData = rawData[month]; // Get data for the selected month
 
-  const { data } = useGetUserAndIncomeQuery();
-  const allData = data?.data?.attributes || {}; // Fallback to empty object if data is undefined
-
-  // Format the allData to match the expected format for the Pie chart
+  // Using demo data for the pie chart
   const pieData = [
-    { name: 'Total Users', value: allData.totalUsers || 0 },
-    { name: 'Total Transactions', value: allData.totalIncome || 0 },
+    { name: 'Total Users', value: mainData.users },
+    { name: 'Total Collaborators', value: mainData.collaborators },
   ];
 
   // Handle month change (from dropdown)
@@ -28,13 +24,20 @@ const Piechart = () => {
   };
 
   // Colors for the pie chart sections
-  const COLORS = ['#8884d8', '#82ca9d'];
+  const COLORS = ['#ea7689', '#196da7'];
 
   return (
-    <div className="w-full col-span-full md:col-span-2 bg-white rounded-lg border border-primary p-5">
+    <div className="w-full col-span-full md:col-span-2 bg-white rounded-lg border-2 border-[#59d8ff] p-5">
       <div className="flex justify-between mb-5">
         <h2 className="text-xl font-semibold">Status Summary</h2>
-
+        <Select
+          value={month}
+          onChange={handleChange}
+          style={{ width: 200 }}
+        >
+          <Select.Option value="august">August</Select.Option>
+          <Select.Option value="september">September</Select.Option>
+        </Select>
       </div>
 
       <div className="w-full">
@@ -43,7 +46,6 @@ const Piechart = () => {
           <PieChart>
             <Pie
               data={pieData}  // Pass the correctly formatted data
-              
               dataKey="value"
               nameKey="name"
               outerRadius={150}

@@ -16,14 +16,14 @@ const MainLayout = () => {
       <section className="w-full h-full md:ml-[200px] lg:ml-[250px] xl:ml-[280px]">
         <Header toggleSidebar={toggleSidebar} />
         <div className="px-4">
-        <Outlet />
+          <Outlet />
         </div>
       </section>
 
       {/* Overlay when sidebar is open on mobile */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black opacity-50 z-30 px-10"
+          className="fixed inset-0 bg-[#000] opacity-50 z-30 px-10"
           onClick={toggleSidebar}
         ></div>
       )}

@@ -31,11 +31,11 @@ const Header = ({ toggleSidebar }) => {
 
 
   return (
-    <div className="w-full px-5 py-3.5 bg-[#59d8ff] flex justify-between items-center text-white sticky top-0 left-0 z-10">
+    <div className="w-full px-5 py-3.5 bg-[#fff] border-b-2 border-[#cecece38] flex justify-between items-center text-white sticky top-0 left-0 z-10">
       <div className="flex items-center gap-3">
         {/* Hamburger menu for mobile */}
         <button
-          className="md:hidden text-white text-3xl"
+          className="md:hidden text-[#59d8ff] text-3xl"
           onClick={toggleSidebar}
         >
           <FiMenu />
@@ -44,7 +44,7 @@ const Header = ({ toggleSidebar }) => {
 
       <div className="flex justify-between items-center gap-5">
         <Link to={"/notification"}>
-          <h1 className="relative text-[#59d8ff] p-2 rounded-full bg-white">
+          <h1 className="relative text-[#fff] p-2 rounded-full bg-[#59d8ff]">
             <MdNotificationsNone className="size-8" />
             <span className="absolute top-0 right-0 w-5 h-5 text-white text-xs flex justify-center items-center bg-red-500 rounded-full">{unreadCount}</span>
           </h1>

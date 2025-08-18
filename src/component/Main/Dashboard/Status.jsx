@@ -11,48 +11,55 @@ const Status = () => {
 
 
   return (
-    <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 items-center gap-5">
 
       {/* Total Renter User Card */}
       <div className="shadow-[0_4px_10px_rgba(0,0,0,0.2)] p-5 rounded-lg border-2 border-[#59d8ff] bg-white">
         <div className="flex items-center gap-5 ">
           <img src={dashboardIcon} className="w-16" alt="" />
-          <h2 className="text-2xl font-semibold">Total Users</h2>
-        </div>
-        <div className="flex items-center mt-5 gap-3">
-          <h1 className="text-4xl font-semibold text-[#222222]">
-            {alldata?.totalUsers || "00"}
-          </h1>
-          <p className="bg-[#59d8ff1f] text-[#59d8ff] rounded-lg px-2 py-1 flex items-center gap-1"> <FaArrowTrendUp className="text-[#cf7e13]" /> 20%</p>
+          <div>
+            <h2 className="text-xl font-semibold">Total Users</h2>
+            <h2 className="text-4xl font-semibold">500</h2>
+          </div>
         </div>
       </div>
-      {/* Total Renter User Card */}
       <div className="shadow-[0_4px_10px_rgba(0,0,0,0.2)] p-5 rounded-lg border-2 border-[#59d8ff] bg-white">
         <div className="flex items-center gap-5 ">
-          {/* <img src={dashboardIcon} className="w-16" alt="" /> */}
-          <div className="w-16 h-16 flex justify-center items-center rounded-lg bg-[#59d8ff]">
-            <IoLogoEuro className="text-2xl text-white" />
+          <img src={dashboardIcon} className="w-16" alt="" />
+          <div>
+            <h2 className="text-xl font-semibold">Complete Booking</h2>
+            <h2 className="text-4xl font-semibold">500</h2>
           </div>
-          <h2 className="text-2xl font-semibold">Total Earnings</h2>
-        </div>
-        <div className="flex items-center mt-5 gap-3">
-          <h1 className="text-4xl font-semibold text-[#222222]">
-            Є {alldata?.totalEarnings || "00"}
-          </h1>
         </div>
       </div>
-      {/* Total Renter User Card */}
       <div className="shadow-[0_4px_10px_rgba(0,0,0,0.2)] p-5 rounded-lg border-2 border-[#59d8ff] bg-white">
-        <div className="flex items-center gap-5">
-          <img src={subsciption} className="w-16" alt="" />
-          <h2 className="text-2xl font-semibold">Total Subscribers </h2>
-        </div>
-        <div className="flex items-center mt-5 gap-3">
-          <h1 className="text-4xl font-semibold text-[#222222]">
-            {alldata?.totalSubscribers || "00"}
-          </h1>
+        <div className="flex items-center gap-5 ">
+          <img src={dashboardIcon} className="w-16" alt="" />
+          <div>
+            <h2 className="text-xl font-semibold">Total Host</h2>
+            <h2 className="text-4xl font-semibold">500</h2>
+          </div>
         </div>
       </div>
+      <div className="shadow-[0_4px_10px_rgba(0,0,0,0.2)] p-5 rounded-lg border-2 border-[#59d8ff] bg-white">
+        <div className="flex items-center gap-5 ">
+          <img src={dashboardIcon} className="w-16" alt="" />
+          <div>
+            <h2 className="text-xl font-semibold">Total Revenue</h2>
+            <h2 className="text-4xl font-semibold">500</h2>
+          </div>
+        </div>
+      </div>
+      <div className="shadow-[0_4px_10px_rgba(0,0,0,0.2)] p-5 rounded-lg border-2 border-[#59d8ff] bg-white">
+        <div className="flex items-center gap-5 ">
+          <img src={dashboardIcon} className="w-16" alt="" />
+          <div>
+            <h2 className="text-xl font-semibold">Granted Balance</h2>
+            <h2 className="text-4xl font-semibold">500</h2>
+          </div>
+        </div>
+      </div>
+  
 
 
     </div>

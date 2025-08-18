@@ -6,43 +6,75 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "/public/logo/dashboard_log.png";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../../../redux/features/auth/authSlice";
-import { RiMoneyDollarCircleFill } from "react-icons/ri";
+import { RiMoneyDollarCircleFill, RiUserStarLine } from "react-icons/ri";
 import { FaBriefcase, FaCopy, FaUserAlt, FaUsers } from "react-icons/fa";
-import { MdDashboard, MdOutlineContactPage, MdOutlineHomeWork } from "react-icons/md";
+import { MdDashboard, MdLibraryBooks, MdOutlineContactPage, MdOutlineHomeWork, MdOutlineLibraryBooks } from "react-icons/md";
 // import { GiLightBulb } from "react-icons/gi";
-import { HiLightBulb } from "react-icons/hi";
-import { FaRegMoneyBill1, FaSackDollar } from "react-icons/fa6";
+import { HiLightBulb, HiOutlineUsers } from "react-icons/hi";
+import { FaExclamation, FaRegMoneyBill1, FaSackDollar } from "react-icons/fa6";
 import { GoHomeFill } from "react-icons/go";
 import { GrDocumentImage } from "react-icons/gr";
-import { RxCross1 } from "react-icons/rx";
+import { RxCross1, RxDashboard } from "react-icons/rx";
 import logoimage from '/public/logo/Logo-Orange.png';
 import { AiFillCrown } from "react-icons/ai";
 import { PiBabyFill, PiBuildingApartmentLight } from "react-icons/pi";
 import { TfiCup } from "react-icons/tfi";
+import { CiDollar, CiMail, CiSettings } from "react-icons/ci";
+import { VscGitPullRequest } from "react-icons/vsc";
 
 const sidebarItems = [
   {
     path: "/",
     name: "Dashboard",
-    icon: <MdDashboard className="size-6" />,
+    icon: <RxDashboard className="size-6" />,
+  },
+  {
+    path: "/booking-request",
+    name: "Booking Request",
+    icon: <MdOutlineLibraryBooks className="size-6" />,
   },
   {
     path: "/users",
     name: "User List",
-    icon: <FaUsers className="size-6" />,
+    icon: <HiOutlineUsers className="size-6" />,
   },
-
-
   {
-    path: "/subscription",
-    name: "Subscription ",
-    icon: <AiFillCrown className="size-6" />,
+    path: "/host",
+    name: "Host",
+    icon: <RiUserStarLine className="size-6" />,
   },
+  {
+    path: "/message",
+    name: "Message",
+    icon: <CiMail className="size-6" />,
+  },
+  {
+    path: "/earnings",
+    name: "Earnings",
+    icon: <CiDollar className="size-6" />,
+  },
+  {
+    path: "/payment-request",
+    name: "Payment Request",
+    icon: <VscGitPullRequest className="size-6" />,
+  },
+  {
+    path: "/reports",
+    name: "Reports",
+    icon: <FaExclamation className="size-6" />,
+  },
+
+
+  // {
+  //   path: "/subscription",
+  //   name: "Subscription ",
+  //   icon: <AiFillCrown className="size-6" />,
+  // },
 
   {
     path: "/settings",
     name: "Settings",
-    icon: <IoSettingsSharp className="size-6" />,
+    icon: <CiSettings className="size-6" />,
   },
 ];
 
@@ -61,7 +93,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   return (
     <div>
       {/* Desktop Sidebar */}
-      <div className="hidden overflow-y-auto md:block w-full md:w-[200px] lg:w-[250px] xl:w-[280px] h-full  bg-[#ffffff] fixed shadow-2xl">
+      <div className="hidden overflow-y-auto md:block w-full md:w-[200px] lg:w-[250px] xl:w-[280px] h-full  bg-[#ffffff] fixed border-r-2 border-[#dbdbdb4f] pb-20">
         <Link to={"/"} className="flex flex-col justify-center items-center pt-5 gap-2 bg-white mb-10 text-black">
           <img src={logoimage} alt="logo" className="w-[80px]  py-5 " />
         </Link>
@@ -97,7 +129,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
           } transition-transform duration-300 ease-in-out md:hidden`}
       >
         <div onClick={toggleSidebar} className="absolute top-0 right-0 p-4">
-          <RxCross1 className="size-6 text-black" />
+          <RxCross1 className="size-6 text-white" />
         </div>
         <div className="flex flex-col justify-center items-center pt-5 gap-2">
           <img src={logo} alt="logo" className="h-20 mb-5" />
