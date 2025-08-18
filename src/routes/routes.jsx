@@ -60,6 +60,7 @@ import MilestoneDetails from "../page/Milestone/MilestoneDetails";
 import BabyCuseSounddetails from "../page/BabyCuse/BabyCuseSounddetails";
 import BabyCuseSouthingdetails from "../page/BabyCuse/BabyCuseSouthingdetails";
 import BookingRequest from "../page/BookingRequest/BookingRequest";
+import Hostlist from "../page/Hostlist/Hostlist";
 
 
 
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
       {
         path: "booking-request",
         element: <BookingRequest />,
+      },
+      {
+        path: "host",
+        element: <Hostlist />,
       },
 
 
