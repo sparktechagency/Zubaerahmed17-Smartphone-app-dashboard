@@ -58,11 +58,7 @@ const sidebarItems = [
     name: "Payment Request",
     icon: <VscGitPullRequest className="size-6" />,
   },
-  // {
-  //   path: "/reviews",
-  //   name: "Reviews",
-  //   icon: <CiStar className="size-6" />,
-  // },
+ 
   {
     path: "/reports",
     name: "Reports",
