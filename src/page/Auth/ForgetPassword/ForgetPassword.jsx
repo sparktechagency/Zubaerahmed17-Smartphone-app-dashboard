@@ -32,15 +32,15 @@ const ForgetPassword = () => {
   };
 
   return (
-    <div className="w-full h-full md:h-screen md:flex relative justify-around items-center overflow-visible">
+    <div className="w-full bg-gradient-to-tl from-green-100 to-blue-100 h-full md:h-screen md:flex relative justify-around items-center overflow-visible">
       {/* Background Images */}
       <img className="absolute -z-10 bottom-0 right-0 w-1/2" src="/Auth/1.png" alt="" />
       <img className="absolute -z-10 top-0 left-0 w-1/2" src="/Auth/2.png" alt="" />
 
       <div className="w-full md:w-1/4">
-        <div className="mt-16 border border-primary rounded-lg p-5">
+        <div className="mt-16 border border-[#2cb5eb] rounded-lg p-5">
           <div className="mb-8">
-            <img src={authLogo} className="w-[100px] mx-auto mb-5" alt="Auth Logo" />
+            <img src={authLogo} className="w-[100px] !rounded-xl mx-auto mb-5" alt="Auth Logo" />
             <h1 className="font-semibold text-3xl text-gray-800">
               Forgot Password
             </h1>
@@ -78,7 +78,7 @@ const ForgetPassword = () => {
               <button
                 loading={isLoading}
                 type="submit"
-                className={`w-full ${isLoading ? 'bg-gray-400' : 'bg-primary'} text-xl font-semibold text-white rounded-md py-2`}
+                className={`w-full !bg-[#2cb5eb] ${isLoading ? '!bg-[#2cb5eb]' : 'bg-primary'} text-xl font-semibold text-white rounded-md py-2`}
                 disabled={isLoading} // Disable button during loading
               >
                 {isLoading ? "Sending..." : "Send Verification Code"}

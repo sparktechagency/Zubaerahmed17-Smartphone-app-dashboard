@@ -50,15 +50,15 @@ const Otp = () => {
   };
 
   return (
-    <div className="w-full h-full md:h-screen md:flex relative justify-around items-center overflow-visible">
+    <div className="w-full bg-gradient-to-tl from-green-100 to-blue-100 h-full md:h-screen md:flex relative justify-around items-center overflow-visible">
       {/* Background Images */}
       <img className="absolute -z-10 bottom-0 right-0 w-1/2" src="/Auth/1.png" alt="" />
       <img className="absolute -z-10 top-0 left-0 w-1/2" src="/Auth/2.png" alt="" />
 
       <div className="w-full md:w-1/4">
-        <div className="mt-16 border border-primary rounded-lg p-5">
+        <div className="mt-16 border border-[#2cb5eb] rounded-lg p-5">
           <div className="mb-8">
-            <img src={authLogo} className="w-[100px] mx-auto mb-5" alt="Auth Logo" />
+            <img src={authLogo} className="w-[100px] !rounded-xl mx-auto mb-5" alt="Auth Logo" />
             <h1 className="font-semibold text-3xl text-gray-800">Verify</h1>
             <p className="text-gray-500">
               We'll send a verification code to your email. Check your inbox and enter the code here.
@@ -79,7 +79,7 @@ const Otp = () => {
               margin: "0 0.5rem",
               fontSize: "2rem",
               fontWeight: "bold",
-              border: "1px solid #59d8ff",
+              border: "1px solid #2cb5eb",
               textAlign: "center",
               outline: "none",
             }}
@@ -90,7 +90,7 @@ const Otp = () => {
             <button
               loading={isLoading}
               type="button"
-              className={`w-full ${isLoading ? 'bg-gray-400' : 'bg-primary'} text-xl font-semibold text-white rounded-md py-2`}
+              className={`w-full !bg-[#2cb5eb] ${isLoading ? 'bg-gray-400' : 'bg-primary'} text-xl font-semibold text-white rounded-md py-2`}
               disabled={isLoading}
             >
               {isLoading ? "Verifying..." : "Verify"}
@@ -102,7 +102,7 @@ const Otp = () => {
             <h1>Didn’t receive code?</h1>
             <button
               onClick={handleResendPassword}
-              className="text-[#4c7e95]"
+              className="text-[#2cb5eb] font-semibold"
             >
               Resend OTP
             </button>

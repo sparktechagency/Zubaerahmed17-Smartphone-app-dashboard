@@ -95,8 +95,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     <div>
       {/* Desktop Sidebar */}
       <div className="hidden overflow-y-auto md:block w-full md:w-[200px] lg:w-[250px] xl:w-[280px] h-full  bg-[#ffffff] fixed border-r-2 border-[#dbdbdb4f] pb-20">
-        <Link to={"/"} className="flex flex-col justify-center items-center w-20 mx-auto rounded-lg overflow-hidden pt-5 gap-2 bg-white mb-10 text-black">
-          <img src={logoimage} alt="logo" className="w-full rounded-md py-5 " />
+        <Link to={"/"} className="flex flex-col justify-center items-center w-20 mx-auto !rounded-xl overflow-hidden pt-5 gap-2 bg-white mb-10 text-black">
+          <img src={logoimage} alt="logo" className="w-full  !rounded-xl py-5 " />
         </Link>
         <ul className="flex flex-col gap-3 mt-10">
           {sidebarItems.map((item) => (
@@ -133,7 +133,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
           <RxCross1 className="size-6 text-white" />
         </div>
         <div className="flex flex-col justify-center items-center pt-5 gap-2">
-          <img src={logo} alt="logo" className="h-20 mb-5" />
+          <img src={logoimage} alt="logo" className="h-20 !rounded-xl mb-5" />
         </div>
         <ul className="flex flex-col gap-3 mt-10">
           {sidebarItems.map((item) => (

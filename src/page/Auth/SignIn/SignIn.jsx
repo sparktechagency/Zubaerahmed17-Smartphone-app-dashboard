@@ -51,13 +51,13 @@ const SignIn = () => {
   };
 
   return (
-    <div className="w-full  h-full md:h-screen md:flex relative justify-around items-center overflow-visible">
+    <div className="w-full bg-gradient-to-tl from-green-100 to-blue-100 h-full md:h-screen md:flex relative justify-around items-center overflow-visible">
       <img className="absolute -z-10 bottom-0 right-0 w-1/2" src="/Auth/1.png" alt="" />
-      <img className="absolute -z-10 top-0 left-0 w-1/2" src="/Auth/2.png" alt="" />
+      <img className="absolute -z-10 top-0 !rounded-xl left-0 w-1/2" src="/Auth/2.png" alt="" />
       <div className="w-full md:w-1/4 ">
         <div className="mt-16 border border-[#59d8ff] rounded-lg p-5">
           <div className="mb-8">
-            <img src={logoimage} className="w-[100px] mx-auto mb-5" alt="" />
+            <img src={logoimage} className="w-[100px] !rounded-xl mx-auto mb-5" alt="" />
             <h1 className="font-semibold text-3xl text-gray-800">
               Welcome Back
             </h1>
