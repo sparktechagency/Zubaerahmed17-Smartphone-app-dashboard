@@ -65,6 +65,7 @@ import Messagelist from "../page/Messagelist/Messagelist";
 import PaymentRequest from "../page/PaymentRequest/PaymentRequest";
 import Reviews from "../page/ReportsUsers/ReportsUsers";
 import ReportsUsers from "../page/ReportsUsers/ReportsUsers";
+import ReportsUsersDetails from "../page/ReportsUsers/ReportsUsersDetails";
 
 
 
@@ -115,6 +116,10 @@ const router = createBrowserRouter([
       {
         path: "reports",
         element: <ReportsUsers />,
+      },
+      {
+        path: "reports/:id",
+        element: <ReportsUsersDetails />,
       },
 
 
