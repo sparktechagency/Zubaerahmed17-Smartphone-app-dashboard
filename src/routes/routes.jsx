@@ -63,7 +63,8 @@ import BookingRequest from "../page/BookingRequest/BookingRequest";
 import Hostlist from "../page/Hostlist/Hostlist";
 import Messagelist from "../page/Messagelist/Messagelist";
 import PaymentRequest from "../page/PaymentRequest/PaymentRequest";
-import Reviews from "../page/reviews/Reviews";
+import Reviews from "../page/ReportsUsers/ReportsUsers";
+import ReportsUsers from "../page/ReportsUsers/ReportsUsers";
 
 
 
@@ -112,8 +113,8 @@ const router = createBrowserRouter([
         element: <PaymentRequest />,
       },
       {
-        path: "reviews",
-        element: <Reviews />,
+        path: "reports",
+        element: <ReportsUsers />,
       },
 
 
