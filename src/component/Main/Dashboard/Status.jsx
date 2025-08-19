@@ -16,7 +16,7 @@ const Status = () => {
     <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 items-center gap-5">
 
       {/* Total Renter User Card */}
-      <div  className="shadow-[0_4px_10px_rgba(0,0,0,0.2)] cursor-pointer p-5 rounded-lg border-2 border-[#59d8ff] bg-white">
+      <div  className="shadow-[0_4px_10px_rgba(0,0,0,0.2)] p-5 rounded-lg border-2 border-[#59d8ff] bg-white">
         <div className="flex items-center gap-5 ">
           <img src={dashboardIcon} className="w-16" alt="" />
           <div>
