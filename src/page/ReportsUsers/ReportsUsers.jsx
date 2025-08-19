@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Modal } from 'antd';  // Modal from Ant Design
 import { FaEye } from 'react-icons/fa';  // Eye icon for "View" 
 import { Link } from 'react-router-dom';
+import { HiAdjustmentsHorizontal } from 'react-icons/hi2';
 
 const ReportsList = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [selectedReport, setSelectedReport] = useState(null); // To store selected report details
-    const [showFilter, setShowFilter] = useState(false);  // Toggle for filter
 
     // Sample data for the table
     const reportsData = [
@@ -57,56 +57,68 @@ const ReportsList = () => {
         setSelectedReport(null);
     };
 
-    // Toggle filter visibility
+
+
+    const [showFilter, setShowFilter] = useState(false);
     const showFilterItem = () => {
         setShowFilter(!showFilter);
     };
 
     return (
-        <div className="p-5">
-            <h1 className="text-2xl font-semibold mb-5">Reports List</h1>
+        <div className="p-5"> 
+
+            <div className="flex relative items-center justify-between mb-5">
+                <h1 className="lg:text-4xl text-2xl font-semibold">Reports List</h1>
+                <button
+                    onClick={showFilterItem}
+                    className="flex items-center text-xl gap-2 bg-[#59d8ff] px-3 py-2 rounded-md text-white hover:bg-[#2cb2d6]"
+                >
+                    Filter
+                    <HiAdjustmentsHorizontal className="text-2xl" />
+                </button>
+                {showFilter && (
+                    <div className="absolute z-20 right-0 top-12 mt-2 p-4 w-64 bg-white rounded-lg shadow-lg">
+                        <div className="flex flex-col gap-4">
+                            <div>
+                                <label htmlFor="month" className="text-sm font-semibold text-gray-700">Select Month</label>
+                                <select id="month" className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md">
+                                    <option value="">Select Month</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label htmlFor="year" className="text-sm font-semibold text-gray-700">Select Year</label>
+                                <select id="year" className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md">
+                                    <option value="">Select Year</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                            </div>
+                            <button onClick={showFilterItem} className="w-full py-2 mt-4 bg-[#59d8ff] text-white rounded-md hover:bg-[#2cb2d6]">
+                                Apply Filter
+                            </button>
+                        </div>
+                    </div>
+                )}
+            </div>
+
+
 
             {/* Filter Button */}
 
-
-            {/* Filter Options */}
-            {showFilter && (
-                <div className="absolute right-0 top-12 mt-2 p-4 w-64 bg-white rounded-lg shadow-lg z-10">
-                    <div className="flex flex-col gap-4">
-                        <div>
-                            <label htmlFor="month" className="text-sm font-semibold text-gray-700">Select Month</label>
-                            <select id="month" className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md">
-                                <option value="">Select Month</option>
-                                <option value="January">January</option>
-                                <option value="February">February</option>
-                                <option value="March">March</option>
-                                <option value="April">April</option>
-                                <option value="May">May</option>
-                                <option value="June">June</option>
-                                <option value="July">July</option>
-                                <option value="August">August</option>
-                                <option value="September">September</option>
-                                <option value="October">October</option>
-                                <option value="November">November</option>
-                                <option value="December">December</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label htmlFor="year" className="text-sm font-semibold text-gray-700">Select Year</label>
-                            <select id="year" className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md">
-                                <option value="">Select Year</option>
-                                <option value="2023">2023</option>
-                                <option value="2022">2022</option>
-                                <option value="2021">2021</option>
-                                <option value="2020">2020</option>
-                            </select>
-                        </div>
-                        <button onClick={showFilterItem} className="w-full py-2 mt-4 bg-[#59d8ff] text-white rounded-md hover:bg-[#2cb2d6]">
-                            Apply Filter
-                        </button>
-                    </div>
-                </div>
-            )}
 
             {/* Reports Table */}
             <table className="min-w-full table-auto border-collapse border border-gray-200">

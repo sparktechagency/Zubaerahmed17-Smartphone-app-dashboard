@@ -52,7 +52,7 @@ const Header = ({ toggleSidebar }) => {
         </Link>
         <Link to={"/settings/personal-info"}>
           <img
-            className="w-12 h-12 rounded-full border-2 border-white hover:border-[#344f47] transition-all duration-300 cursor-pointer"
+            className="w-12 h-12 rounded-full border-2 border-white hover:border-[#59d8ff] transition-all duration-300 cursor-pointer"
             src={user?.profileImage ? Url + user?.profileImage : userImage}
             alt="User Profile"
           />
