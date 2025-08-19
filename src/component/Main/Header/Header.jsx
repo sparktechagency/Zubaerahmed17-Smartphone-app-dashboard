@@ -42,14 +42,14 @@ const Header = ({ toggleSidebar }) => {
         </button>
       </div>
 
-      <div className="flex justify-between items-center gap-5">
-        <Link to={"/notification"}>
-          <h1 className="relative text-[#fff] p-2 rounded-full bg-[#59d8ff]">
+      <Link to={"/notification"} className="flex justify-between items-center gap-2">
+        <>
+          <h1 className="relative text-[#fff] p-2 mr-5 rounded-full bg-[#59d8ff]">
             <MdNotificationsNone className="size-8" />
             <span className="absolute top-0 right-0 w-5 h-5 text-white text-xs flex justify-center items-center bg-red-500 rounded-full">{unreadCount}</span>
           </h1>
 
-        </Link>
+        </>
         <Link to={"/settings/personal-info"}>
           <img
             className="w-12 h-12 rounded-full border-2 border-white hover:border-[#59d8ff] transition-all duration-300 cursor-pointer"
@@ -57,11 +57,11 @@ const Header = ({ toggleSidebar }) => {
             alt="User Profile"
           />
         </Link>
-        <div className="hidden md:block">
-          <h1 className="">{user?.fullName}</h1>
+        <div className="hidden md:block text-black">
+          <h1 className="font-semibold">{user?.fullName}</h1>
           <span className="">{user?.role}</span>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };
