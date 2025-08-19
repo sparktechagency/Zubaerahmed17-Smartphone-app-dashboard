@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { logoutUser } from "../../../redux/features/auth/authSlice";
 import { RiMoneyDollarCircleFill, RiUserStarLine } from "react-icons/ri";
 import { FaBriefcase, FaCopy, FaUserAlt, FaUsers } from "react-icons/fa";
-import { MdDashboard, MdLibraryBooks, MdOutlineContactPage, MdOutlineHomeWork, MdOutlineLibraryBooks } from "react-icons/md";
+import { MdDashboard, MdLibraryBooks, MdOutlineContactPage, MdOutlineHomeWork, MdOutlineLibraryBooks, MdOutlineReportProblem } from "react-icons/md";
 // import { GiLightBulb } from "react-icons/gi";
 import { HiLightBulb, HiOutlineUsers } from "react-icons/hi";
 import { FaExclamation, FaRegMoneyBill1, FaSackDollar } from "react-icons/fa6";
@@ -62,7 +62,7 @@ const sidebarItems = [
   {
     path: "/reports",
     name: "Reports",
-    icon: <FaExclamation className="size-6" />,
+    icon: <MdOutlineReportProblem className="size-6" />,
   },
 
 

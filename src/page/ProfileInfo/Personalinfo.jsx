@@ -52,7 +52,7 @@ const Personalinfo = () => {
                                 <Input
                                     placeholder="First name"
                                     value={user?.fullName} // Raw text for name
-                                    className="p-4 cursor-pointer text-lg md:text-xl bg-[#ebf5f5] text-black rounded w-full mt-3 outline-none"
+                                    className="p-4 cursor-pointer text-lg md:text-xl bg-[#59d8ff2c] text-black rounded w-full mt-3 outline-none"
                                     type="text"
                                     readOnly
                                 />
@@ -66,24 +66,24 @@ const Personalinfo = () => {
                             <Input
                                 placeholder="Email"
                                 value={user?.email}// Raw text for email
-                                className="p-4 text-lg md:text-xl bg-[#ebf5f5] rounded w-full mt-3 outline-none"
+                                className="p-4 text-lg md:text-xl bg-[#59d8ff2c] rounded w-full mt-3 outline-none"
                                 type="text"
                                 readOnly
                             />
                         </div>
 
-                        <div className="flex-1">
+                        {/* <div className="flex-1">
                             <label htmlFor="phone" className="text-lg md:text-xl font-medium">
                                 Phone Number
                             </label>
                             <Input
                                 placeholder="Phone"
                                 value={user?.phoneNumber}// Raw text for phone number
-                                className="p-4 text-lg md:text-xl bg-[#ebf5f5] rounded w-full mt-3 outline-none"
+                                className="p-4 text-lg md:text-xl bg-[#59d8ff2c] rounded w-full mt-3 outline-none"
                                 type="text"
                                 readOnly
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
