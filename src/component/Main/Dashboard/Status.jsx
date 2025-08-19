@@ -6,12 +6,11 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 import { message } from "antd";
 
 const Status = () => {
+  
   const { data, isLoading } = useGetDashboardStatusQuery();
-
   const alldata = data?.data?.attributes;
 
  
-
   return (
     <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 items-center gap-5">
 
